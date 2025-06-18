@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عروض تجهيزات البيبي</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff5f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg, #f8b9d4, #f9d8e5);
+      padding: 30px 20px;
+    }
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .countdown {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d9006c;
+      margin: 20px 0;
+    }
+    .images {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .images img {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .images img:nth-child(1) {
+      width: 250px;
+      height: auto;
+      margin-top: 0;
+    }
+    .images img:nth-child(2) {
+      width: 220px;
+      height: auto;
+      margin-top: 30px;
+    }
+    .images img:nth-child(3) {
+      width: 200px;
+      height: auto;
+      margin-top: 60px;
+    }
+    .features {
+      background: #fff;
+      padding: 20px;
+      font-size: 16px;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features li::before {
+      content: '🍼';
+      margin-left: 5px;
+    }
+    .cta {
+      margin: 30px 0;
+    }
+    .cta a {
+      display: inline-block;
+      background-color: #ff69b4;
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .cta a:hover {
+      background-color: #e95ca3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>عروض تجهيزات البيبي لكل أم أنيقة 👶💖</h1>
+    <p>خصومات حصرية وتوصيل سريع خلال 24 ساعة</p>
+  </header>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="images">
+    <!-- ✨ ضع هنا صور المنتجات الثلاثة -->
+    <img src="03.png" alt="منتج 1">
+    <img src="02.png" alt="منتج 2">
+    <img src="01.png" alt="منتج 3">
+  </div>
+
+  <div class="features">
+    <h2>لماذا تختارين منتجاتنا؟</h2>
+    <ul>
+      <li>منتجات آمنة وناعمة لطفلك</li>
+      <li>تصميمات أنيقة تناسب ذوقك</li>
+      <li>عروض حصرية وتوفير كبير</li>
+      <li>خدمة توصيل سريعة خلال 24 ساعة</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a href="https://t.me/+a0x9f05MDPQ2NDA0" target="_blank">تسوقي الأنيق الآن 💖</a>
+  </div>
+
+  <script>
+    // عد تنازلي لمدة 48 ساعة
+    const countdownElement = document.getElementById("countdown");
+    const deadline = new Date();
+    deadline.setHours(deadline.getHours() + 48);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = deadline - now;
+
+      if (diff <= 0) {
+        countdownElement.innerHTML = "انتهى العرض!";
+        return;
+      }
+
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `⏰ ينتهي العرض خلال: ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
